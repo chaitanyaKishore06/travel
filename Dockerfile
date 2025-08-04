@@ -1,4 +1,23 @@
-# Use official Tomcat image with JDK 21
+# Multi-stage build for Render deployment
+# Stage 1: Build the application
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy pom.xml first for better caching
+COPY pom.xml .
+
+# Download dependencies
+RUN mvn dependency:go-offline -B
+
+# Copy source code
+COPY src ./src
+
+# Build the application
+RUN mvn clean package -DskipTests
+
+# Stage 2: Runtime
 FROM tomcat:10.1-jdk21-openjdk-slim
 
 # Remove default Tomcat applications
@@ -12,9 +31,8 @@ ENV SPRING_PROFILES_ACTIVE=render
 # Create directory for our application
 WORKDIR /usr/local/tomcat/webapps
 
-# Copy the WAR file to Tomcat webapps directory
-# The WAR will be deployed as ROOT application (accessible at /)
-COPY target/TravelBuddy-0.0.1-SNAPSHOT.war ROOT.war
+# Copy the WAR file from builder stage
+COPY --from=builder /app/target/TravelBuddy-0.0.1-SNAPSHOT.war ROOT.war
 
 # Create uploads directory for file uploads
 RUN mkdir -p /usr/local/tomcat/webapps/uploads

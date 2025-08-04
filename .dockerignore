@@ -1,6 +1,5 @@
-# Maven
+# Maven - for multi-stage build, we'll build inside container
 target/
-!target/TravelBuddy-0.0.1-SNAPSHOT.war
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -35,3 +34,6 @@ Thumbs.db
 # Other
 README.md
 *.md
+deploy*.ps1
+setup*.ps1
+.env*
