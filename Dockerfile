@@ -7,7 +7,7 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 # Set environment variables
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV PATH=$CATALINA_HOME/bin:$PATH
-ENV SPRING_PROFILES_ACTIVE=prod
+ENV SPRING_PROFILES_ACTIVE=render
 
 # Create directory for our application
 WORKDIR /usr/local/tomcat/webapps
