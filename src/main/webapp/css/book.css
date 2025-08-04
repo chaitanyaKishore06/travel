@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h2 {
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+p {
+    color: #718096;
+    margin-bottom: 20px;
+}
+.tour-grid, .room-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.tour-card, .room-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.tour-card:hover, .room-card:hover {
+    transform: translateY(-5px);
+}
+.tour-card img, .room-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.tour-info, .room-info {
+    padding: 15px;
+}
+.discount {
+    background: #f6ad55;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.rating {
+    color: #ecc94b;
+    margin-bottom: 10px;
+}
+.price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2d3748;
+}
+.original-price {
+    text-decoration: line-through;
+    color: #a0aec0;
+    margin-left: 10px;
+}
+.book-btn, .select-btn {
+    background: #63b3ed;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+.book-btn:hover, .select-btn:hover {
+    background: #4299e1;
+}
+.sidebar {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.sidebar label {
+    display: block;
+    margin-bottom: 10px;
+}
+.sidebar input, .sidebar select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+}
+.package-includes {
+    margin-top: 20px;
+}
+.room-content {
+    margin-left: 20px;
+}
+.back-btn {
+    color: #2d3748;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
